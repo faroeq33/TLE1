@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    /* default fontfamilies */
+    html {
+        font-family: "Fredoka", system-ui, sans-serif;
+    }
+    /* default fontfamilies */
+}
