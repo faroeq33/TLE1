@@ -15,11 +15,11 @@
     }
 
     .btn-primary {
-        @apply text-white bg-blue-600 border rounded hover:bg-blue-600;
+        @apply text-white bg-blue-600 border-b shadow-white hover:bg-primary;
     }
 
     .btn-secondary {
-        @apply inline-block bg-transparent border rounded select-none text-secondary;
+        @apply inline-block text-white bg-transparent border-b select-none;
     }
     /* btn styles */
 
