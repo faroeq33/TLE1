@@ -4,7 +4,7 @@
     <div class="custom-container">
         <div class="flex flex-wrap justify-center">
             <div class="px-4 md:w-2/3">
-                <div class="relative flex flex-col min-w-0 break-words bg-white border border-gray-300 rounded border-1">
+                <div class="relative flex flex-col min-w-0 break-words  border border-gray-300 rounded border-1">
                     <div class="px-6 py-3 mb-0 text-gray-900 bg-gray-200 border-gray-300 border-b-1">
                         {{ __('Reset Password') }}</div>
 
@@ -25,7 +25,7 @@
 
                                 <div class="pl-4 pr-4 md:w-1/2">
                                     <input id="email" type="email"
-                                        class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded @error('email') bg-red-700 @enderror"
+                                        class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal  text-gray-800 border border-gray-200 rounded @error('email') bg-red-700 @enderror"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
