@@ -22,4 +22,8 @@
         @apply inline-block bg-transparent border rounded select-none text-secondary;
     }
     /* btn styles */
+
+    .custom-container {
+        @apply container w-full mx-auto sm:px-4;
+    }
 }

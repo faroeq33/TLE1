@@ -25,8 +25,10 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class="">
     <div id="app">
+        <header><img src="{{ asset('img/header-museum.png') }}" alt="" class="object-cover w-full h-48">
+        </header>
         @include('nav')
 
         <main class="py-4">
