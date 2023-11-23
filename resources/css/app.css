@@ -8,4 +8,18 @@
         font-family: "Fredoka", system-ui, sans-serif;
     }
     /* default fontfamilies */
+
+    /* btn styles */
+    .btn {
+        @apply inline-block px-3 py-1 font-normal leading-normal text-center no-underline align-middle select-none;
+    }
+
+    .btn-primary {
+        @apply text-white bg-blue-600 border rounded hover:bg-blue-600;
+    }
+
+    .btn-secondary {
+        @apply inline-block bg-transparent border rounded select-none text-secondary;
+    }
+    /* btn styles */
 }

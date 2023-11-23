@@ -22,7 +22,7 @@
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
-                                        <span class="mt-1 text-sm  text-red" role="alert">
+                                        <span class="mt-1 text-sm text-red" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -39,7 +39,7 @@
                                         name="password" required autocomplete="current-password">
 
                                     @error('password')
-                                        <span class="mt-1 text-sm  text-red" role="alert">
+                                        <span class="mt-1 text-sm text-red" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -61,14 +61,12 @@
 
                             <div class="flex flex-wrap mb-0">
                                 <div class="pl-4 pr-4 md:w-2/3 md:mx-1/3">
-                                    <button type="submit"
-                                        class="inline-block px-3 py-1 font-normal leading-normal text-center text-white no-underline whitespace-no-wrap align-middle bg-blue-600 border rounded select-none hover:bg-blue-600">
+                                    <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
                                     </button>
 
                                     @if (Route::has('password.request'))
-                                        <a class="mt-4 inline-block px-3 py-1 font-normal leading-normal text-center text-blue-700 no-underline whitespace-no-wrap align-middle bg-transparent border rounded select-none"
-                                            href="{{ route('password.request') }}">
+                                        <a class="btn btn-secondary" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif
