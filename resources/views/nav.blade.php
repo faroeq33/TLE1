@@ -1,3 +1,18 @@
+@php
+    # Normaal zou je dit in de controller doen, maar omdat we in dit geval de navigatie op meerdere pagina's gebruiken, is het handiger om het hier te doen.
+$menuItems = [
+    [
+        'name' => 'Home',
+        'route' => 'home',
+        'active' => true,
+    ],
+    [
+        'name' => 'Livestream',
+        'route' => 'home', # Verander dit in de route van de livestream pagina als die er is
+        'active' => false,
+        ],
+    ];
+@endphp
 <nav class="bg-white shadow" x-data="{
     open: false,
     mobileOpen: true,
@@ -33,9 +48,10 @@
                 </div>
 
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                    <a href="{{ route('home') }}"
-                        class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-tertiary hover:text-gray-700">Livestream</a>
-
+                    @foreach ($menuItems as $menuItem)
+                        <a href="{{ route($menuItem['route']) }}"
+                            class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-tertiary hover:text-gray-700">{{ $menuItem['name'] }}</a>
+                    @endforeach
                 </div>
             </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -86,7 +102,7 @@
                             @else
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="">
                                     @csrf
-                                    <a class="px-4 py-2 text-sm text-gray-700 " role="menuitem" tabindex="-1"
+                                    <a class="px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
                                         id="user-menu-item-2"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                         href="{{ route('logout') }}">
@@ -104,9 +120,10 @@
     {{-- Mobiele navigatie --}}
     <div class="sm:hidden" id="mobile-menu" x-show="mobileOpen">
         <div class="pt-2 pb-4 space-y-1">
-            <a href="{{ route('home') }}"
-                class="block py-2 pl-3 pr-4 text-base font-medium text-gray-500 border-l-4 border-transparent hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">Producten</a>
-
+            @foreach ($menuItems as $menuItem)
+                <a href="{{ route($menuItem['route']) }}"
+                    class="block py-2 pl-3 pr-4 text-base font-medium text-gray-500 border-l-4 border-transparent hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">{{ $menuItem['name'] }}</a>
+            @endforeach
         </div>
     </div>
 </nav>
