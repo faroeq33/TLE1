@@ -19,7 +19,7 @@
     }
 
     .btn-secondary {
-        @apply inline-block text-white bg-transparent border-b select-none;
+        @apply inline-block underline bg-transparent border-b select-none text-dark hover:duration-300 hover:no-underline;
     }
     /* btn styles */
 
