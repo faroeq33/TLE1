@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->dateTime('datetime');
             $table->string('customer', 255);
+            $table->string('email', 191);
             $table->text('description');
             $table->string('slug', 255)->nullable()->unique();
             $table->integer('login_code')->unique();
