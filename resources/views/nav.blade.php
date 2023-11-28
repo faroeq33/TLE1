@@ -10,6 +10,11 @@ $menuItems = [
         'name' => 'Livestream',
         'route' => 'home', # Verander dit in de route van de livestream pagina als die er is
         'active' => false,
+    ],
+    [
+        'name' => 'Admin user',
+        'route' => 'admin.user',
+        'active' => true,
         ],
     ];
 @endphp
