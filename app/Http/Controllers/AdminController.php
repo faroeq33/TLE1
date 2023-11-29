@@ -24,4 +24,11 @@ class AdminController extends Controller
         // Add your logic for updating a user
     }
 
+    public function delete(User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('admin.user')->with('success', 'User deleted successfully.');
+    }
+
 }
