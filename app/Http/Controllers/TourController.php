@@ -4,22 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tour;
-//use Illuminate\Http\RedirectResponse;
-//use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 
 class TourController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         if (Auth::check()) {
-            $tour = Tour::where('user_id', Auth::id() )->get();
+            $tours = Tour::where('user_id', Auth::id())->get();
+            $formattedTours = [];
 
-            $dateTime = Tour::datetime();
-            $timeOnly = $dateTime->format('H:i:s');
-            $dateOnly = $dateTime->format('d-m-Y');
+            foreach ($tours as $tour) {
+                $dateTime = $tour->datetime;
+                $timeOnly = date('H:i:s', strtotime($dateTime));
+                $dateOnly = date('d-m-Y', strtotime($dateTime));
+
+
+                // If you want to store these formatted values for each tour
+                $formattedTours[] = [
+                    'tour' => $tour,
+                    'timeOnly' => $timeOnly,
+                    'dateOnly' => $dateOnly,
+                ];
+            }
+
+            return view('overview', compact('formattedTours'));
         }
-        return view('', compact('tour', $timeOnly, $dateOnly));
+
+        return view('home');
     }
 
     public function create()
