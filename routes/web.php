@@ -17,12 +17,6 @@ Auth::routes();
 //Livestream
     Route::get('livestream/{login_code}', [App\Http\Controllers\TourController::class, 'livestreamConnect'])->name('livestream');
 
-    //Deze kan weg, Auth::routes(); doet dit al
-    Route::group(['middleware' => ['auth']], function() {
-        // All routes that require a login
-    });
-    //tot hier kan weg
-
 //Admin
     Route::group(['middleware' => ['check.admin']], function() {
         Route::get('/admin/user', [AdminController::class, 'view_user'])->name('admin.user');

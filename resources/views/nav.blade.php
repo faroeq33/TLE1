@@ -7,8 +7,13 @@ $menuItems = [
         'active' => true,
     ],
     [
+        'name' => 'Tour overzicht',
+        'route' => 'overview',
+        'active' => true,
+    ],
+    [
         'name' => 'Livestream',
-        'route' => 'home', # Verander dit in de route van de livestream pagina als die er is
+        'route' => 'livestream',
         'active' => false,
     ],
     [
