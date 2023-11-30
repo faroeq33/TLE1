@@ -21,12 +21,10 @@ class TourController extends Controller
                 $timeOnly = date('H:i:s', strtotime($dateTime));
                 $dateOnly = date('d-m-Y', strtotime($dateTime));
 
-
-                // If you want to store these formatted values for each tour
                 $formattedTours[] = [
                     'tour' => $tour,
                     'timeOnly' => $timeOnly,
-                    'dateOnly' => $dateOnly,
+                    'dateOnly' => $dateOnly
                 ];
             }
 
@@ -34,6 +32,31 @@ class TourController extends Controller
         }
 
         return view('home');
+    }
+
+    public function detail($id): View {
+        if (Auth::check($id)) {
+            $tour = Tour::find($id);
+            $formattedTours = [];
+
+            $dateTime = $tour->datetime;
+            $timeOnly = date('H:i:s', strtotime($dateTime));
+            $dateOnly = date('d-m-Y', strtotime($dateTime));
+
+            $formattedTours[] = [
+                'tour' => $tour,
+                'timeOnly' => $timeOnly,
+                'dateOnly' => $dateOnly
+            ];
+
+            return view('detail', compact('formattedTours'));
+        }
+        return view('home');
+    }
+
+    public function livestreamConnect ($login_code):  View
+    {
+        return view('livestream');
     }
 
     public function create()

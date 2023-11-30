@@ -6,7 +6,7 @@
             <td>Datum</td>
             <td>Tijd</td>
             <td>Klant</td>
-            <td>Meer info</td>
+            <td>Terug naar overzicht</td>
             <td>Start livestream</td>
         </tr>
 
@@ -16,10 +16,10 @@
                 <td> {{ $formattedTour['timeOnly'] }} </td>
                 <td> {{ $formattedTour['tour']->customer }} </td>
                 <td>
-                    <form method="GET" action="{{ route('detail', $formattedTour['tour']->id) }}">
+                    <form method="GET" action="{{ route('overview') }}">
                         @csrf
-                        @method('get')
-                        <button type="submit">Meer info</button>
+                        @method('GET')
+                        <button type="submit">Terug naar overzicht</button>
                     </form>
                 </td>
                 <td>
@@ -32,5 +32,4 @@
             </tr>
         @endforeach
     </table>
-
 @endsection
