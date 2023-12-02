@@ -11,20 +11,30 @@ class AdminController extends Controller
     public function view_user()
     {
         $users = User::all();
-        return view('admin.user', compact('users'));
+        return view('admin.view_user', compact('users'));
     }
 
-    public function edit(User $user)
+    public function view_create_user()
+    {
+        return view('admin.view_create_user');
+    }
+
+    public function create_user()
     {
         // Add your logic for editing a user
     }
 
-    public function update(Request $request, User $user)
+    public function view_edit_user()
     {
-        // Add your logic for updating a user
+        return view('admin.view_edit_user');
     }
 
-    public function delete(User $user)
+    public function edit_user(User $user)
+    {
+        // Add your logic for editing a user
+    }
+
+    public function delete_user(User $user)
     {
         $user->delete();
 

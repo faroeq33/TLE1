@@ -13,7 +13,7 @@ $menuItems = [
     ],
     [
         'name' => 'Admin user',
-        'route' => 'admin.user',
+        'route' => 'admin.view_user',
         'active' => true,
         ],
     ];

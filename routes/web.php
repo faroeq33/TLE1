@@ -26,11 +26,13 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::group(['middleware' => ['check.admin']], function() {
-    Route::get('/admin/user', [AdminController::class, 'view_user'])->name('admin.user');
+    Route::get('/admin/view_user', [AdminController::class, 'view_user'])->name('admin.view_user');
 
-    Route::post('/admin/create/{user}', [AdminController::class, 'create'])->name('admin.create');
+    Route::get('/admin/create_user', [AdminController::class, 'view_create_user'])->name('admin.view_create_user');
+    Route::post('/admin/create_new_user', [AdminController::class, 'create_user'])->name('admin.create_user');
 
-    Route::put('/admin/edit/{user}', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::get('/admin/edit_user', [AdminController::class, 'view_edit_user'])->name('admin.view_edit_user');
+    Route::put('/admin/edit_user/{user}', [AdminController::class, 'edit_user'])->name('admin.edit_user');
 
-    Route::delete('/admin/delete/{user}', [AdminController::class, 'delete'])->name('admin.delete');
+    Route::delete('/admin/delete_user/{user}', [AdminController::class, 'delete_user'])->name('admin.delete_user');
 });
