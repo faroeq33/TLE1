@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mx-auto">
         <div class="flex justify-between items-center mb-4">
-            <h1 class="text-3xl font-bold">Admin Dashboard</h1>
+            <h1 class="text-3xl font-bold">Gebruikers Overzicht</h1>
             <a href="{{ route('admin.view_create_user') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-20 rounded">Add new user</a>
         </div>
         <table class="min-w-full bg-white border border-gray-300">
