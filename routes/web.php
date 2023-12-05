@@ -4,26 +4,19 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 //No log-in needed routes
+    //Needs to be above Auth::routes(); otherwise users need to log-in in order to log in
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Auth::routes();
+//Tour overview and detail page
+    Route::get('/tour/overview', [App\Http\Controllers\TourController::class, 'index'])->name('overview');
+    Route::get('/tour/detail/{id}', [App\Http\Controllers\TourController::class, 'detail'])->name('detail');
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Livestream
+    Route::get('livestream/{login_code}', [App\Http\Controllers\TourController::class, 'livestreamConnect'])->name('livestream');
 
-Route::group(['middleware' => ['auth']], function() {
-    // All routes that require a login
-});
 
 Route::group(['middleware' => ['check.admin']], function() {
     Route::get('/admin/user/overview', [AdminController::class, 'view_user'])->name('admin.view_user');
