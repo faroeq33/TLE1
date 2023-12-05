@@ -25,30 +25,20 @@ class TourController extends Controller
     }
 
 
-    public function detail($id): View {
-        //Checks if the user is logged in
-        if (Auth::check()) {
-            //Finds tour with the corresponding sent id in the database
-            $tour = Tour::find($id);
-            $formattedTours = [];
+    public function detail($id): View
+    {
+        $user = Auth::user();
+        $tour = Tour::find($id);
 
-            //Takes the datetime and puts it in a timeOnly and date only variable
-            $dateTime = $tour->datetime;
-            $timeOnly = date('H:i:s', strtotime($dateTime));
-            $dateOnly = date('d-m-Y', strtotime($dateTime));
-
-            //Stores these variables inside formatted tours
-            $formattedTours[] = [
-                'tour' => $tour,
-                'timeOnly' => $timeOnly,
-                'dateOnly' => $dateOnly
-            ];
-            //Returns the view "detail" with formatted tours
-            return view('tour.detail', compact('formattedTours'));
+        // Check if the authenticated user is an admin or linked with the tour
+        if ($user->is_admin || ($tour && $tour->user_id == $user->id)) {
+            return view('tour.detail', compact('tour'));
         }
-        //Returns the view "home"
+
+        // Returns the view "home" for unauthorized users
         return view('home');
     }
+
 
     public function livestreamConnect ($login_code):  View
     {

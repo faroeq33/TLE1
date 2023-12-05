@@ -46,7 +46,7 @@
                                 <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-700">Delete</button>
                             </form>
                         @else
-                            <a href="{{ route('livestream', $tour->login_code) }}" class="px-2 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Start Livestream</a>
+                            <a href="{{ route('livestream', $tour->login_code) }}" class="px-2 py-1 text-white bg-green-500 rounded hover:bg-green-700">Start Livestream</a>
                         @endif
                     </td>
                 </tr>
