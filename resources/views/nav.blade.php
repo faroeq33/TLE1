@@ -12,11 +12,6 @@ $menuItems = [
         'active' => true,
     ],
     [
-        'name' => 'Livestream',
-        'route' => 'livestream',
-        'active' => false,
-    ],
-    [
         'name' => 'Admin user',
         'route' => 'admin.user',
         'active' => true,
