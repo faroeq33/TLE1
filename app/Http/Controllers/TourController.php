@@ -10,33 +10,20 @@ use Illuminate\Support\Facades\Auth;
 
 class TourController extends Controller
 {
-    public function index(): View
+
+    public function overview()
     {
-        //Checks if the user is logged-in
-        if (Auth::check()) {
-            //Gets the tours linked to their user_id
-            $tours = Tour::where('user_id', Auth::id())->get();
-            $formattedTours = [];
+        $user = Auth::user();
 
-            //For each tour, it takes the datetime and puts it in a timeOnly and date only variable
-            foreach ($tours as $tour) {
-                $dateTime = $tour->datetime;
-                $timeOnly = date('H:i:s', strtotime($dateTime));
-                $dateOnly = date('d-m-Y', strtotime($dateTime));
-
-                //Stores these variables inside formatted tours
-                $formattedTours[] = [
-                    'tour' => $tour,
-                    'timeOnly' => $timeOnly,
-                    'dateOnly' => $dateOnly
-                ];
-            }
-            //Returns the view "overview" with formatted tours
-            return view('tour.overview', compact('formattedTours'));
+        if ($user && $user->is_admin) {
+            $tours = Tour::all();
+        } else {
+            $tours = $user->tours;
         }
-        //Returns the view "home"
-        return view('home');
+
+        return view('tour.overview', compact('tours'));
     }
+
 
     public function detail($id): View {
         //Checks if the user is logged in

@@ -20,6 +20,10 @@ class Tour extends Model
         'login_code',
     ];
 
+    protected $casts = [
+        'datetime' => 'datetime',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

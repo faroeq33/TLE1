@@ -88,22 +88,24 @@ class AdminController extends Controller
         $tour->login_code = mt_rand(000000, 999999);
         $tour->save();
 
-        return redirect()->route('admin.view_user')->with('success', 'Tour created successfully!');
+        return redirect()->route('overview')->with('success', 'Tour created successfully!');
     }
 
-    public function view_edit_tour(User $user)
+    public function view_edit_tour(User $tour)
     {
         // Redirect to the edit page
     }
 
-    public function edit_tour(User $user)
+    public function edit_tour(User $tour)
     {
         // Add your logic for editing a user
     }
 
-    public function delete_tour(User $user)
+    public function delete_tour(Tour $tour)
     {
-        // Add logic for deleting a tour
+        $tour->delete();
+
+        return redirect()->route('overview')->with('success', 'Tour deleted successfully.');
     }
 
 }
