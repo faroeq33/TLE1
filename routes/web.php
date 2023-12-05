@@ -4,21 +4,23 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-//No log-in needed routes
-    //Needs to be above Auth::routes(); otherwise users need to log-in in order to log in
+Auth::routes();
+
+Route::group(['middleware' => ['auth']], function() {
+
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-Auth::routes();
-//Tour overview and detail page
+    //Tour overview and detail page
     Route::get('/tour/overview', [App\Http\Controllers\TourController::class, 'index'])->name('overview');
     Route::get('/tour/detail/{id}', [App\Http\Controllers\TourController::class, 'detail'])->name('detail');
 
-//Livestream
+    //Livestream
     Route::get('livestream/{login_code}', [App\Http\Controllers\TourController::class, 'livestreamConnect'])->name('livestream');
 
+});
 
 Route::group(['middleware' => ['check.admin']], function() {
+
     Route::get('/admin/user/overview', [AdminController::class, 'view_user'])->name('admin.view_user');
 
     Route::get('/admin/user/create', [AdminController::class, 'view_create_user'])->name('admin.view_create_user');
@@ -28,4 +30,5 @@ Route::group(['middleware' => ['check.admin']], function() {
     Route::patch('/admin/user/edit/put/{user}', [AdminController::class, 'edit_user'])->name('admin.edit_user');
 
     Route::delete('/admin/user/delete/{user}', [AdminController::class, 'delete_user'])->name('admin.delete_user');
+
 });
