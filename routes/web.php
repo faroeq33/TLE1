@@ -17,13 +17,15 @@ Auth::routes();
 //Livestream
     Route::get('livestream/{login_code}', [App\Http\Controllers\TourController::class, 'livestreamConnect'])->name('livestream');
 
-//Admin
-    Route::group(['middleware' => ['check.admin']], function() {
-        Route::get('/admin/user', [AdminController::class, 'view_user'])->name('admin.user');
 
-        Route::post('/admin/create/{user}', [AdminController::class, 'create'])->name('admin.create');
+Route::group(['middleware' => ['check.admin']], function() {
+    Route::get('/admin/user/overview', [AdminController::class, 'view_user'])->name('admin.view_user');
 
-        Route::put('/admin/edit/{user}', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::get('/admin/user/create', [AdminController::class, 'view_create_user'])->name('admin.view_create_user');
+    Route::post('/admin/user/create/post', [AdminController::class, 'create_user'])->name('admin.create_user');
 
-        Route::delete('/admin/delete/{user}', [AdminController::class, 'delete'])->name('admin.delete');
-    });
+    Route::get('/admin/user/edit/{user}', [AdminController::class, 'view_edit_user'])->name('admin.view_edit_user');
+    Route::patch('/admin/user/edit/put/{user}', [AdminController::class, 'edit_user'])->name('admin.edit_user');
+
+    Route::delete('/admin/user/delete/{user}', [AdminController::class, 'delete_user'])->name('admin.delete_user');
+});
