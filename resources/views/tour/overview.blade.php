@@ -1,8 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+    @php
+        $currentUser = auth()->user();
+    @endphp
+
     <div class="container mx-auto">
     <h1 class="mb-4 text-3xl font-bold text-center">Tour Overview</h1>
+        @if ($currentUser && $currentUser->is_admin)
+            <a href="{{ route('admin.view_create_tour') }}" type="button" class="bg-green-500 text-white px-4 py-2 rounded-md">{{ __('Maak een nieuwe tour aan') }}</a>
+        @endif
     <table class="min-w-full bg-white border border-gray-300">
         <tr>
             <td class="px-4 py-2 text-center border-b">Datum</td>

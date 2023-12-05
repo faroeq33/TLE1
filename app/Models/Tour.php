@@ -14,6 +14,7 @@ class Tour extends Model
         'user_id',
         'datetime',
         'customer',
+        'email',
         'description',
         'slug',
         'login_code',

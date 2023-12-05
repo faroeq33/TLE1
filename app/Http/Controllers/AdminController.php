@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tour;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Organisation;
@@ -10,6 +11,8 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+    //User code
+
     public function view_user()
     {
         $users = User::all();
@@ -54,6 +57,53 @@ class AdminController extends Controller
         $user->delete();
 
         return redirect()->route('admin.view_user')->with('success', 'User deleted successfully.');
+    }
+
+    //Tour code
+
+    public function view_create_tour()
+    {
+        $users = User::with('organisation')->get();
+        return view('admin.view_create_tour', compact('users'));
+    }
+
+    public function create_tour(Request $request)
+    {
+        $validatedData = $request->validate([
+            'datetime' => 'required|date',
+            'customer' => 'required|string|max:255',
+            'email' => 'required|email',
+            'description' => 'required|string',
+            'user_id' => 'required|exists:users,id',
+        ]);
+
+        $tour = new Tour([
+            'datetime' => $validatedData['datetime'],
+            'customer' => $validatedData['customer'],
+            'email' => $validatedData['email'],
+            'description' => $validatedData['description'],
+        ]);
+
+        $tour->user()->associate(User::find($validatedData['user_id']));
+        $tour->login_code = mt_rand(000000, 999999);
+        $tour->save();
+
+        return redirect()->route('admin.view_user')->with('success', 'Tour created successfully!');
+    }
+
+    public function view_edit_tour(User $user)
+    {
+        // Redirect to the edit page
+    }
+
+    public function edit_tour(User $user)
+    {
+        // Add your logic for editing a user
+    }
+
+    public function delete_tour(User $user)
+    {
+        // Add logic for deleting a tour
     }
 
 }
