@@ -19,6 +19,7 @@
         @endif
 
         <table class="min-w-full bg-white border border-gray-300">
+            <thead>
             <tr>
                 <th class="px-4 py-2 text-center border-b">Gids</th>
                 <th class="px-4 py-2 text-center border-b">Klant</th>
@@ -27,9 +28,10 @@
                 <th class="px-4 py-2 text-center border-b">Tijd</th>
                 <th class="px-4 py-2 text-center border-b">Acties</th>
             </tr>
-
+            </thead>
+            <tbody>
             @foreach($tours as $tour)
-                <tr>
+                <tr class="transition-colors duration-300 hover:bg-gray-100 cursor-pointer" onclick="window.location='{{ route('detail', $tour->id) }}';">
                     <td class="px-4 py-2 text-center border-b">{{ $tour->user->name }} - {{ $tour->user->organisation ? $tour->user->organisation->name : 'No Organisation' }}</td>
                     <td class="px-4 py-2 text-center border-b">{{ $tour->customer }}</td>
                     <td class="px-4 py-2 text-center border-b">{{ $tour->email }}</td>
@@ -37,24 +39,20 @@
                     <td class="px-4 py-2 text-center border-b">{{ $tour->datetime->format('H:i') }}</td>
                     <td class="px-4 py-2 text-center border-b">
                         @if ($currentUser && $currentUser->is_admin)
-                            <a href="{{ route('admin.view_edit_tour', $tour->id) }}"
-                               class="px-2 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Edit</a>
+                            <a href="{{ route('admin.view_edit_tour', $tour->id) }}" class="px-2 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Edit</a>
                             <form method="post" action="{{ route('admin.delete_tour', $tour->id) }}" class="inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit"
-                                        class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-700">Delete
-                                </button>
+                                <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-700">Delete</button>
                             </form>
                         @else
-                            <a href="{{ route('livestream', $tour->login_code) }}"
-                               class="px-2 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Start Livestream</a>
+                            <a href="{{ route('livestream', $tour->login_code) }}" class="px-2 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Start Livestream</a>
                         @endif
-
                     </td>
                 </tr>
-            @endforeach
-        </table>
 
+            @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection
