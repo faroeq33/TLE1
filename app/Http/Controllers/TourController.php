@@ -21,7 +21,7 @@ class TourController extends Controller
             $tours = $user->tours;
         }
 
-        return view('tour.overview', compact('tours'));
+        return view('tour.overview')->with('user', $user)->with('tours', $tours);
     }
 
 
@@ -32,12 +32,11 @@ class TourController extends Controller
 
         // Check if the authenticated user is an admin or linked with the tour
         if ($user->is_admin || ($tour && $tour->user_id == $user->id)) {
-            return view('tour.detail', compact('tour'));
+            return view('tour.detail')->with('user', $user)->with('tour', $tour);
         }
-
-        // Returns the view "home" for unauthorized users
-        return view('home');
+        return view('tour.overview');
     }
+
 
 
     public function livestreamConnect ($login_code):  View
@@ -45,33 +44,4 @@ class TourController extends Controller
         return view('livestream');
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(string $id)
-    {
-        //
-    }
-
-    public function edit(string $id)
-    {
-        //
-    }
-
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    public function destroy(string $id)
-    {
-        //
-    }
 }

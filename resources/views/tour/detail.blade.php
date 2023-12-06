@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @php
-        $currentUser = auth()->user();
-    @endphp
     <div class="container mx-auto mt-8">
         <div class="max-w-md mx-auto bg-white rounded p-6 shadow-md">
             <h2 class="text-2xl font-semibold mb-4">{{ __('Tour Details') }}</h2>
@@ -28,7 +25,7 @@
                 <strong>Beschrijving:</strong> {{ $tour->description }}
             </div>
             <div class="mb-4">
-                @if ($currentUser && $currentUser->is_admin)
+                @if ($user && $user->is_admin)
                     <a href="{{ route('admin.view_edit_tour', $tour->id) }}" class="px-2 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Edit</a>
                     <form method="post" action="{{ route('admin.delete_tour', $tour->id) }}" class="inline">
                         @csrf
