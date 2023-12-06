@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email', 191);
             $table->text('description');
             $table->integer('login_code')->unique();
+            $table->string('slug', 255)->nullable()->unique();
             $table->timestamps();
         });
     }
