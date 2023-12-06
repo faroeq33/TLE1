@@ -14,9 +14,14 @@ class Tour extends Model
         'user_id',
         'datetime',
         'customer',
+        'email',
         'description',
         'slug',
         'login_code',
+    ];
+
+    protected $casts = [
+        'datetime' => 'datetime',
     ];
 
     public function user(): BelongsTo

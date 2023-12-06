@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('tours', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->dateTime('datetime');
             $table->string('customer', 255);
             $table->string('email', 191);
             $table->text('description');
-            $table->string('slug', 255)->nullable()->unique();
             $table->integer('login_code')->unique();
+            $table->string('slug', 255)->nullable()->unique();
             $table->timestamps();
         });
     }

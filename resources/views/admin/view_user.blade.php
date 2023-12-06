@@ -6,6 +6,12 @@
             <h1 class="text-3xl font-bold">Gebruikers Overzicht</h1>
             <a href="{{ route('admin.view_create_user') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-20 rounded">Add new user</a>
         </div>
+        @if (session('status'))
+            <div class="relative px-3 py-3 mb-4 text-green-800 bg-green-200 border border-green-300 rounded"
+                 role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
         <table class="min-w-full bg-white border border-gray-300">
             <thead>
             <tr>

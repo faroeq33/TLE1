@@ -1,39 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto">
-        <h1 class="mb-4 text-3xl font-bold text-center">Meer informatie over tour</h1>
-        <table class="min-w-full bg-white border border-gray-300">
-            <tr>
-                <td class="px-4 py-2 text-center border-b">Datum</td>
-                <td class="px-4 py-2 text-center border-b">Tijd</td>
-                <td class="px-4 py-2 text-center border-b">Klant</td>
-                <td class="px-4 py-2 text-center border-b">Meer informatie</td>
-            </tr>
+    <div class="container mx-auto mt-8">
+        <div class="max-w-md mx-auto bg-white rounded p-6 shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">{{ __('Tour Details') }}</h2>
 
-            @foreach($formattedTours as $formattedTour)
-                <tr>
-                    <td class="px-4 py-2 text-center border-b"> {{ $formattedTour['dateOnly'] }} </td>
-                    <td class="px-4 py-2 text-center border-b"> {{ $formattedTour['timeOnly'] }} </td>
-                    <td class="px-4 py-2 text-center border-b"> {{ $formattedTour['tour']->customer }} </td>
-                    <td class="px-4 py-2 border-b"> {{ $formattedTour['tour']->description }}</td>
-                </tr>
-            @endforeach
-        </table>
-        <div class="container mx-auto">
-            <div class="px-4 py-2 mx-4 flex justify-end">
-                <form method="GET" action="{{ route('overview') }}" class="inline">
-                    @csrf
-                    @method('get')
-                    <button class="px-2 py-1 mx-2 text-white bg-blue-500 rounded hover:bg-blue-700" type="submit">Terug naar overzicht</button>
-                </form>
-
-                <form method="GET" action="{{ route('livestream', $formattedTour['tour']->login_code) }}" class="inline">
-                    @csrf
-                    @method('get')
-                    <button class="px-2 py-1 mx-2 text-white bg-red-500 rounded hover:bg-red-700" type="submit">Start livestream</button>
-                </form>
+            <!-- Display tour details -->
+            <div class="mb-4">
+                <strong>Gids:</strong> {{ $tour->user->name }} - {{ $tour->user->organisation ? $tour->user->organisation->name : 'No Organisation' }}
             </div>
+            <div class="mb-4">
+                <strong>Klant:</strong> {{ $tour->customer }}
+            </div>
+            <div class="mb-4">
+                <strong>Klant Email:</strong> {{ $tour->email }}
+            </div>
+            <div class="mb-4">
+                <strong>Datum:</strong> {{ $tour->datetime->format('d F Y') }}
+            </div>
+            <div class="mb-4">
+                <strong>Tijd:</strong> {{ $tour->datetime->format('H:i') }}
+            </div>
+            <div class="mb-4">
+                <strong>Beschrijving:</strong> {{ $tour->description }}
+            </div>
+            <div class="mb-4">
+                @if ($user && $user->is_admin)
+                    <a href="{{ route('admin.view_edit_tour', $tour->id) }}" class="px-2 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Edit</a>
+                    <form method="post" action="{{ route('admin.delete_tour', $tour->id) }}" class="inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-700">Delete</button>
+                    </form>
+                @else
+                    <a href="{{ route('livestream', $tour->login_code) }}" class="px-2 py-1 text-white bg-green-500 rounded hover:bg-green-700">Start Livestream</a>
+                @endif
+            </div>
+
+
+            <!-- Back button -->
+            <a href="{{ route('overview') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">Terug naar overzicht</a>
         </div>
     </div>
 @endsection
