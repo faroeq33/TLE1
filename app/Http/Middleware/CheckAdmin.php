@@ -19,6 +19,6 @@ class CheckAdmin
             return $next($request);
         }
 
-        return redirect()->route('home')->with('error', 'Permission denied.');
+        return redirect()->route('overview')->with('error', 'Permission denied.');
     }
 }

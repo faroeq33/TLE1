@@ -2,11 +2,6 @@
     # Normaal zou je dit in de controller doen, maar omdat we in dit geval de navigatie op meerdere pagina's gebruiken, is het handiger om het hier te doen.
 $menuItems = [
     [
-        'name' => 'Home',
-        'route' => 'home',
-        'active' => true,
-    ],
-    [
         'name' => 'Tour overzicht',
         'route' => 'overview',
         'active' => true,
@@ -47,7 +42,7 @@ $menuItems = [
             </div>
             <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
                 <div class="flex items-center flex-shrink-0 p-4 m-4 ">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('overview') }}">
                         <p class="uppercase font-primary">IP-car</p>
                     </a>
                 </div>
