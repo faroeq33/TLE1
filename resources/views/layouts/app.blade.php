@@ -25,20 +25,17 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="">
+<body>
 <div id="app">
-    <header><img src="{{ asset('img/header-museum.png') }}" alt="" class="object-cover w-full h-48">
+    <header>
+        @include('partials.nav')
     </header>
-    @include('partials.nav')
 
     <main class="py-4">
-
-        <body class="h-screen">
         @yield('content')
-        </body>
     </main>
 </div>
 </body>
-@yield('scripts')
 
+@yield('scripts')
 </html>
