@@ -3,15 +3,35 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "debug": "^4.3.4",
+        "express": "^4.18.2",
+        "mqtt": "^4.3.7",
+        "precompiled-mqtt": "^4.3.14-beta",
+        "uuid": "^9.0.0",
+        "ws": "^8.9.0"
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
         "autoprefixer": "^10.4.16",
         "axios": "^1.1.2",
+        "css-loader": "^6.7.1",
+        "html-webpack-plugin": "^5.5.0",
+        "json-loader": "^0.5.7",
         "laravel-vite-plugin": "^0.8.0",
         "postcss": "^8.4.31",
+        "sass": "^1.55.0",
+        "sass-loader": "^13.1.0",
+        "style-loader": "^3.3.1",
         "tailwindcss": "^3.3.5",
-        "vite": "^4.0.0"
+        "vite": "^4.0.0",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0",
+        "webpack-dev-server": "^4.11.1"
     }
 }
