@@ -57,21 +57,23 @@
                 </button>
 
                 <!-- Trigger/Open The Modal -->
-                <button id="controllerButton">
-                    <img src="{{ Vite::asset('/public/storage/icons/question_mark_blue.png') }}" alt="Help icon"
-                         width="19" height="19" class="pointer-events-none" id="micIcon">
-                </button>
+                @auth
+                    <button id="controllerButton">
+                        <img src="{{ Vite::asset('/public/storage/icons/question_mark_blue.png') }}" alt="Help icon"
+                             width="19" height="19" class="pointer-events-none" id="helpIcon">
+                    </button>
 
-                <!-- The Modal -->
-                <div id="controllerModal" class="modal">
+                    <!-- The Modal -->
+                    <div id="controllerModal" class="modal">
 
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p>Grafiek met hulpzame informatie over de besturing</p>
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>Grafiek met hulpzame informatie over de besturing</p>
+                        </div>
+
                     </div>
-
-                </div>
+                @endauth
             </div>
         </div>    <!--einde landscape-->
         <div id="portrait">

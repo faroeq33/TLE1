@@ -10,7 +10,7 @@ const MediaStreamConstraints = {
 // navigator.mediaDevices.getUserMedia( MediaStreamConstraints )
 //     .then( MediaStream => {
 //         /*assuming that there is a video tag having
-//         an id 'video' in the index.html*/
+//         an id 'video' in the index.blade.php*/
 //         const videoElem = document.getElementById( 'video');
 //
 //         /*it is important to use the srcObject

@@ -1,3 +1,5 @@
+{{--Dit is de oude index.html (van Dominque). Dit werd gerefereerd op regel 43 van
+server.js, dus ik heb het voor nu erin gelaten.--}}
 <!doctype html>
 <html >
 <head>
