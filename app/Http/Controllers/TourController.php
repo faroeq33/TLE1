@@ -45,7 +45,7 @@ class TourController extends Controller
     {
 //        ddd   ($login_code);
         return view('livestream', [
-            'tour' => Tour::with('user')->where('login_code', $login_code)
+            'tour' => Tour::with('user')->where('tour.login_code', '=', $login_code)
             ]);
     }
 }
