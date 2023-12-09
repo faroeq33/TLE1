@@ -514,7 +514,11 @@ async function videoStream(){ /// begin video verbinding
                                        max: 60
                                       }
                           },
-                  audio: true,
+                  audio: {
+                      AutoGainControl: true,
+                      EchoCancellation: true,
+                      NoiseSuppression: true
+                  },
                 });
                 ownStream =  mediaStream
                 window.videoFeed.srcObject = mediaStream;
