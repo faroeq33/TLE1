@@ -349,8 +349,8 @@ async function videoStream(){ /// begin video verbinding
   // console.log(this.carNumber);
     const mediaStream = await navigator.mediaDevices.getUserMedia({
        video: {
-              width: {prefer: 1920},
-              height: {prefer: 1080},
+              width: {ideal: 1920},
+              height: {ideal: 1080},
               frameRate: {
                            min: 25,
                            max: 60

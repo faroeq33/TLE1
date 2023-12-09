@@ -1,4 +1,4 @@
-import "../css/styles.css"
+import "../../css/styles.css"
 import JoystickController from "./elements/joystick"
 
 
@@ -30,7 +30,13 @@ let textEncoder = new TextEncoder("utf-8");
 let startButton = document.getElementById("startButton");
 let switchVideoFeed= document.getElementById("switchVideoFeed");
 let touchCheckBox = document.getElementById ("checkbox");
+let videoFeed = document.getElementById("videoFeed");
 
+let cameraFunctions = document.getElementById("cameraToggle");
+let micFunctions= document.getElementById("micToggle");
+let modal= document.getElementById("controllerModal");
+let modalBtn = document.getElementById("controllerButton");
+let modalSpan = document.getElementsByClassName("close")[0];
 
 let portrait = true;
 let landscape = false;
@@ -501,8 +507,8 @@ async function videoStream(){ /// begin video verbinding
               // console.log(this.carNumber);
                 const mediaStream = await navigator.mediaDevices.getUserMedia({
                    video: {
-                          width: {ideal: 1920},
-                          height: {ideal: 1080},
+                          width: {prefer: 1920},
+                          height: {prefer: 1080},
                           frameRate: {
                                        min: 25,
                                        max: 60
@@ -512,8 +518,8 @@ async function videoStream(){ /// begin video verbinding
                 });
                 ownStream =  mediaStream
                 window.videoFeed.srcObject = mediaStream;
-                window.videoFeed.volume = 0;
-                window.videoFeed.muted = 0;
+                // window.videoFeed.volume = 0;
+                // window.videoFeed.muted = 0;
                 window.videoFeed.play();
 
                // document.getElementById("status").innerHTML = "Own camera feed"
@@ -624,6 +630,44 @@ async function videoStream(){ /// begin video verbinding
                 }
 
           } // einde video verbinding
+
+cameraFunctions.onclick =  async function(e) { // Turn your own camera on or off
+    // let image = document.getElementById("cameraIcon").src;
+    //
+    // if (image.indexOf('webcam_blue.png')!==-1) {
+    //     document.getElementById('cameraIcon').src  = "/public/storage/icons/webcam_black.png"
+    // }
+    // else {
+    //     document.getElementById('cameraIcon').src = "/public/storage/icons/webcam_blue.png"
+    // }
+
+    ownStream.getVideoTracks().forEach(track => {
+        track.enabled = !track.enabled
+    });
+}
+
+micFunctions.onclick =  async function(e) { // Turn your own microphone on or off
+    ownStream.getAudioTracks().forEach(track => {
+        track.enabled = !track.enabled
+    });
+}
+
+// When the user clicks on the button, open the modal
+modalBtn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+modalSpan.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 //////////////////////
 const selectedAll = document.querySelectorAll(".wrapper-dropdown");
