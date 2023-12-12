@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+          rel="stylesheet">
 
     {{-- needed for toggles in navigations to work --}}
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js" defer></script>
@@ -25,20 +25,17 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="">
-    <div id="app">
-        <header><img src="{{ asset('img/header-museum.png') }}" alt="" class="object-cover w-full h-48">
-        </header>
-        @include('nav')
+<body>
+<div id="app">
+    <header>
+        @include('partials.nav')
+    </header>
 
-        <main class="py-4">
-
-            <body class="h-screen">
-                @yield('content')
-            </body>
-        </main>
-    </div>
+    <main class="py-4">
+        @yield('content')
+    </main>
+</div>
 </body>
-@yield('scripts')
 
+@yield('scripts')
 </html>
