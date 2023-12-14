@@ -44,12 +44,35 @@ class AdminController extends Controller
 
     public function view_edit_user(User $user)
     {
-        return view('admin.view_edit_user');
+        $organisations = Organisation::all();
+        return view('admin.view_edit_user', compact('user', 'organisations'));
     }
 
-    public function edit_user(User $user)
+
+    public function edit_user(Request $request, User $user)
     {
-        // Add your logic for editing a user
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:8',
+            'organisation_id' => 'required|exists:organisations,id',
+            'is_admin' => 'nullable|boolean',
+        ]);
+
+        $data = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'organisation_id' => $request->input('organisation_id'),
+            'is_admin' => $request->input('is_admin', 0), // Default to 0 if not provided
+        ];
+
+        if ($request->filled('password')) {
+            $data['password'] = bcrypt($request->input('password'));
+        }
+
+        $user->update($data);
+
+        return redirect()->route('admin.view_user')->with('success', 'User updated successfully.');
     }
 
     public function delete_user(User $user)
