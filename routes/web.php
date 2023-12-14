@@ -36,7 +36,7 @@ Route::group(['middleware' => ['check.admin']], function() {
     Route::post('/admin/tour/create/post', [AdminController::class, 'create_tour'])->name('admin.create_tour');
 
     Route::get('/admin/tour/edit/{tour}', [AdminController::class, 'view_edit_tour'])->name('admin.view_edit_tour');
-    Route::patch('/admin/tour/edit/put/{tour}', [AdminController::class, 'edit_tour'])->name('admin.edit_tour');
+    Route::patch('/admin/tour/edit/{tour}', [AdminController::class, 'edit_tour'])->name('admin.edit_tour');
 
     Route::delete('/admin/tour/delete/{tour}', [AdminController::class, 'delete_tour'])->name('admin.delete_tour');
 });

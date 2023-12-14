@@ -116,13 +116,31 @@ class AdminController extends Controller
 
     public function view_edit_tour(User $tour)
     {
-        // Redirect to the edit page
+        $users = User::with('organisation')->get();
+        return view('admin.view_edit_tour', compact('tour', 'users'));
     }
 
-    public function edit_tour(User $tour)
+    public function edit_tour(Request $request, Tour $tour)
     {
-        // Add your logic for editing a user
+        $validatedData = $request->validate([
+            'datetime' => 'required|date',
+            'customer' => 'required|string|max:255',
+            'email' => 'required|email',
+            'description' => 'required|string',
+            'user_id' => 'required|exists:users,id',
+        ]);
+
+        $tour->update([
+            'datetime' => $validatedData['datetime'],
+            'customer' => $validatedData['customer'],
+            'email' => $validatedData['email'],
+            'description' => $validatedData['description'],
+            'user_id' => $validatedData['user_id'],
+        ]);
+
+        return redirect()->route('overview')->with('success', 'Tour updated successfully!');
     }
+
 
     public function delete_tour(Tour $tour)
     {
