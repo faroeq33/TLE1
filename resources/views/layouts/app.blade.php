@@ -22,7 +22,7 @@
 
     <!-- Scripts -->
     @yield('head')
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css'])
 </head>
 
 <body class="">
@@ -31,7 +31,7 @@
         </header>
         @include('nav')
 
-        <main class="py-4">
+        <main class="pt-4">
 
             <body class="h-screen">
                 @yield('content')
