@@ -16,7 +16,6 @@
                     </ul>
                 </div>
             @endif
-
             <form method="POST" action="{{ route('admin.edit_tour', ['tour' => $tour]) }}">
                 @csrf
                 @method('PATCH')
@@ -25,7 +24,7 @@
                     <label for="user_id" class="block text-sm font-medium text-gray-600">{{ __('Select User') }}</label>
                     <select name="user_id" id="user_id" class="mt-1 p-2 w-full border rounded-md">
                         @foreach ($users as $user)
-                            <option value="{{ $user->id }}" {{ $tour->user_id == $user->id ? 'selected' : '' }}>
+                            <option value="{{ $user->id }}" {{ old('user_id', $tour->user_id) == $user->id ? 'selected' : '' }}>
                                 {{ $user->name }} - {{ $user->organisation ? $user->organisation->name : 'No Organisation' }}
                             </option>
                         @endforeach
@@ -34,22 +33,22 @@
 
                 <div class="mb-4">
                     <label for="datetime" class="block text-sm font-medium text-gray-600">{{ __('Tour Date and Time') }}</label>
-                    <input type="datetime-local" name="datetime" id="datetime" class="mt-1 p-2 w-full border rounded-md" />
+                    <input type="datetime-local" name="datetime" id="datetime" class="mt-1 p-2 w-full border rounded-md" value="{{ old('datetime', $tour->datetime) }}" />
                 </div>
 
                 <div class="mb-4">
                     <label for="customer" class="block text-sm font-medium text-gray-600">{{ __('Customer Name') }}</label>
-                    <input type="text" name="customer" id="customer" class="mt-1 p-2 w-full border rounded-md" value="{{ $tour->customer }}" />
+                    <input type="text" name="customer" id="customer" class="mt-1 p-2 w-full border rounded-md" value="{{ old('customer', $tour->customer) }}" />
                 </div>
 
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-600">{{ __('Customer Email') }}</label>
-                    <input type="email" name="email" id="email" class="mt-1 p-2 w-full border rounded-md" value="{{ $tour->email }}" />
+                    <input type="email" name="email" id="email" class="mt-1 p-2 w-full border rounded-md" value="{{ old('email', $tour->email) }}" />
                 </div>
 
                 <div class="mb-4">
                     <label for="description" class="block text-sm font-medium text-gray-600">{{ __('Tour Description') }}</label>
-                    <textarea name="description" id="description" class="mt-1 p-2 w-full border rounded-md" rows="4">{{ $tour->description }}</textarea>
+                    <textarea name="description" id="description" class="mt-1 p-2 w-full border rounded-md" rows="4">{{ old('description', $tour->description) }}</textarea>
                 </div>
 
                 <div>

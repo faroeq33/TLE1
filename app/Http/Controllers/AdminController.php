@@ -114,7 +114,7 @@ class AdminController extends Controller
         return redirect()->route('overview')->with('success', 'Tour created successfully!');
     }
 
-    public function view_edit_tour(User $tour)
+    public function view_edit_tour(Tour $tour)
     {
         $users = User::with('organisation')->get();
         return view('admin.view_edit_tour', compact('tour', 'users'));
