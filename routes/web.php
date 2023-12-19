@@ -6,13 +6,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
+Route::redirect('/register', '/login');
 
 Route::group(['middleware' => ['auth']], function() {
 
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
     //Tour overview and detail page
-    Route::get('/tour/overview', [TourController::class, 'overview'])->name('overview');
+    Route::get('/', [TourController::class, 'overview'])->name('overview');
     Route::get('/tour/detail/{id}', [TourController::class, 'detail'])->name('detail');
 
     //Livestream
