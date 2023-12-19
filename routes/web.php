@@ -16,6 +16,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     //Livestream
     Route::get('livestream/{login_code}', [TourController::class, 'livestreamConnect'])->name('livestream');
+    Route::get('/admin/livestream/{login_code}', [TourController::class, 'ipCarStream'])->name('ip_car_livestream');
 
 });
 

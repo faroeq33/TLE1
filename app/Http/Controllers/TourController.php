@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Tour;
+
+use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class TourController extends Controller
 {
@@ -38,10 +41,19 @@ class TourController extends Controller
     }
 
 
-
-    public function livestreamConnect ($login_code):  View
+    public function livestreamConnect ($login_code)
     {
-        return view('livestream');
+//        ddd   ($login_code);
+        return view('index', [
+            'tour' => Tour::with('user')->where('tour.login_code', '=', $login_code)
+            ]);
     }
 
+    public function ipCarStream ($login_code)
+    {
+//        ddd   ($login_code);
+        return view('stream', [
+            'tour' => Tour::with('user')->where('tour.login_code', '=', $login_code)
+        ]);
+    }
 }

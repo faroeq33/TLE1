@@ -1,0 +1,11 @@
+{
+    "name": "IP-Car",
+    "short_name": "IP-Car",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fdfdfd",
+    "theme_color": "#366f75",
+    "orientation": "landscape-primary",
+    "icons": [],
+    "description":"With this app you can control a remote car"
+}
