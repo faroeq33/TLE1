@@ -103,9 +103,9 @@ video {
     z-index: 4; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow-y: hidden; /* Disables being able to scroll to prevent dragging the div */
     background-color: rgb(0, 0, 0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
@@ -114,7 +114,7 @@ video {
 .modal-content {
     background-color: #fefefe;
     color: #0a0a0a;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 5% auto; /* 5% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
