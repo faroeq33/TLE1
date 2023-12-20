@@ -60,7 +60,7 @@
                             <button id="controllerButton">
                                 <img src="{{ Vite::asset('/public/storage/icons/question_mark_blue.png') }}"
                                      alt="Help icon"
-                                     width="21" height="21" class="pointer-events-none" id="helpIcon">
+                                     width="19" height="19" class="pointer-events-none" id="helpIcon">
                             </button>
 
                             <!-- The Modal -->
@@ -116,6 +116,11 @@
                 </div>
                 <div class="livefeedOwn">
                     <video mute='true' playsinline autoplay id='ownFeed'></video>
+                </div>
+                <div class="livefeedViewers">
+                    <img src="{{ Vite::asset('/public/storage/icons/user_group_blue.png') }}" alt="Placeholder image showing a group of users"
+                         class="relative right-1/2 left-1/2 w-1/5 h-/3 overflow-hidden bg-gray-500 z-10">
+                    >
                 </div>
             </div>
 
