@@ -56,24 +56,24 @@
                         </button>
 
                         <!-- Trigger/Open The Modal -->
-{{--                        @auth--}}
-{{--                            <button id="controllerButton">--}}
-{{--                                <img src="{{ Vite::asset('/public/storage/icons/question_mark_blue.png') }}"--}}
-{{--                                     alt="Help icon"--}}
-{{--                                     width="19" height="19" class="pointer-events-none" id="helpIcon">--}}
-{{--                            </button>--}}
+                        @auth
+                            <button id="controllerButton">
+                                <img src="{{ Vite::asset('/public/storage/icons/question_mark_blue.png') }}"
+                                     alt="Help icon"
+                                     width="19" height="19" class="pointer-events-none" id="helpIcon">
+                            </button>
 
-{{--                            <!-- The Modal -->--}}
-{{--                            <div id="controllerModal" class="modal">--}}
+                            <!-- The Modal -->
+                            <div id="controllerModal" class="modal">
 
-{{--                                <!-- Modal content -->--}}
-{{--                                <div class="modal-content">--}}
-{{--                                    <span class="close">&times;</span>--}}
-{{--                                    <img src="../img/SteeringInstructions.png" alt="Instructions on driving the IP-Car. Hold W to go straight ahead. Hold A to steer to the left and hold D to steer to the right. Hold S to go backwards. Keep in mind that in order to turn, you have to hold both your steering key (A or D) and the W key.">--}}
-{{--                                </div>--}}
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <img src="../img/SteeringInstructions.png" alt="Instructions on driving the IP-Car. Hold W to go straight ahead. Hold A to steer to the left and hold D to steer to the right. Hold S to go backwards. Keep in mind that in order to turn, you have to hold both your steering key (A or D) and the W key.">
+                                </div>
 
-{{--                            </div>--}}
-{{--                        @endauth--}}
+                            </div>
+                        @endauth
                     </div>
                 </div>
 
