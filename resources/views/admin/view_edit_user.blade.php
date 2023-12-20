@@ -23,27 +23,24 @@
 
                 <div class="mb-4">
                     <label for="name" class="block text-sm font-medium text-gray-600">{{ __('Name') }}</label>
-                    <input type="text" name="name" id="name" value="{{ old('name', $user->name) }}"
-                           class="mt-1 p-2 w-full border rounded-md" required/>
+                    <input type="text" name="name" id="name" value="{{ old('name', $user->name) }}" class="mt-1 p-2 w-full border rounded-md" required/>
                 </div>
 
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-600">{{ __('Email Address') }}</label>
-                    <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}"
-                           class="mt-1 p-2 w-full border rounded-md" required/>
+                    <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}" class="mt-1 p-2 w-full border rounded-md" required/>
                 </div>
 
                 <div class="mb-4">
                     <label for="password" class="block text-sm font-medium text-gray-600">{{ __('Password') }}</label>
-                    <input type="password" name="password" id="password"
-                           class="mt-1 p-2 w-full border rounded-md"/>
+                    <input type="password" name="password" id="password" class="mt-1 p-2 w-full border rounded-md"/>
                 </div>
 
                 <div class="mb-4">
                     <label for="organisation_id"
                            class="block text-sm font-medium text-gray-600">{{ __('Organisation') }}</label>
-                    <select name="organisation_id" id="organisation_id"
-                            class="mt-1 p-2 w-full border rounded-md">
+                    <select name="organisation_id" id="organisation_id" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="">No Organisation</option>
                         @foreach ($organisations as $organisation)
                             <option value="{{ $organisation->id }}"{{ old('organisation_id', $user->organisation_id) == $organisation->id ? ' selected' : '' }}>
                                 {{ $organisation->name }}
@@ -54,13 +51,11 @@
 
                 <div class="mb-4">
                     <label for="is_admin" class="block text-sm font-medium text-gray-600">{{ __('Is Admin') }}</label>
-                    <input type="checkbox" name="is_admin" id="is_admin"
-                           value="1"{{ old('is_admin', $user->is_admin) ? ' checked' : '' }}>
+                    <input type="checkbox" name="is_admin" id="is_admin" value="1"{{ old('is_admin', $user->is_admin) ? ' checked' : '' }}>
                 </div>
 
                 <div>
-                    <button type="submit"
-                            class="bg-blue-500 text-white px-4 py-2 rounded-md">{{ __('Update User') }}</button>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{ __('Update User') }}</button>
                 </div>
             </form>
         </div>

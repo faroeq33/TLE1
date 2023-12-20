@@ -55,7 +55,7 @@ class AdminController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8',
-            'organisation_id' => 'required|exists:organisations,id',
+            'organisation_id' => 'nullable|exists:organisations,id',
             'is_admin' => 'nullable|boolean',
         ]);
 
