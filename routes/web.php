@@ -30,7 +30,7 @@ Route::group(['middleware' => ['check.admin']], function() {
     Route::post('/admin/user/create/post', [AdminController::class, 'create_user'])->name('admin.create_user');
 
     Route::get('/admin/user/edit/{user}', [AdminController::class, 'view_edit_user'])->name('admin.view_edit_user');
-    Route::patch('/admin/user/edit/put/{user}', [AdminController::class, 'edit_user'])->name('admin.edit_user');
+    Route::patch('/admin/user/edit/{user}', [AdminController::class, 'edit_user'])->name('admin.edit_user');
 
     Route::delete('/admin/user/delete/{user}', [AdminController::class, 'delete_user'])->name('admin.delete_user');
 
@@ -39,7 +39,7 @@ Route::group(['middleware' => ['check.admin']], function() {
     Route::post('/admin/tour/create/post', [AdminController::class, 'create_tour'])->name('admin.create_tour');
 
     Route::get('/admin/tour/edit/{tour}', [AdminController::class, 'view_edit_tour'])->name('admin.view_edit_tour');
-    Route::patch('/admin/tour/edit/put/{tour}', [AdminController::class, 'edit_tour'])->name('admin.edit_tour');
+    Route::patch('/admin/tour/edit/{tour}', [AdminController::class, 'edit_tour'])->name('admin.edit_tour');
 
     Route::delete('/admin/tour/delete/{tour}', [AdminController::class, 'delete_tour'])->name('admin.delete_tour');
 });

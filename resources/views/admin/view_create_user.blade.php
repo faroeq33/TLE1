@@ -22,27 +22,24 @@
 
                 <div class="mb-4">
                     <label for="name" class="block text-sm font-medium text-gray-600">{{ __('Name') }}</label>
-                    <input type="text" name="name" id="name" value="{{ old('name') }}"
-                           class="mt-1 p-2 w-full border rounded-md" required/>
+                    <input type="text" name="name" id="name" value="{{ old('name') }}" class="mt-1 p-2 w-full border rounded-md" required/>
                 </div>
 
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-600">{{ __('Email Address') }}</label>
-                    <input type="email" name="email" id="email" value="{{ old('email') }}"
-                           class="mt-1 p-2 w-full border rounded-md" required/>
+                    <input type="email" name="email" id="email" value="{{ old('email') }}" class="mt-1 p-2 w-full border rounded-md" required/>
                 </div>
 
                 <div class="mb-4">
                     <label for="password" class="block text-sm font-medium text-gray-600">{{ __('Password') }}</label>
-                    <input type="text" name="password" id="password" class="mt-1 p-2 w-full border rounded-md"
-                           required/>
+                    <input type="text" name="password" id="password" class="mt-1 p-2 w-full border rounded-md" required/>
                 </div>
 
                 <div class="mb-4">
                     <label for="organisation_id"
                            class="block text-sm font-medium text-gray-600">{{ __('organisation') }}</label>
-                    <select name="organisation_id" id="organisation_id"
-                            class="mt-1 p-2 w-full border rounded-md">
+                    <select name="organisation_id" id="organisation_id" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="">No Organisation</option>
                         @foreach ($organisations as $organisation)
                             <option value="{{ $organisation->id }}">{{ $organisation->name }}</option>
                         @endforeach
@@ -55,8 +52,7 @@
                 </div>
 
                 <div>
-                    <button type="submit"
-                            class="bg-blue-500 text-white px-4 py-2 rounded-md">{{ __('Create User') }}</button>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">{{ __('Create User') }}</button>
                 </div>
             </form>
         </div>
