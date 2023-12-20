@@ -35,20 +35,20 @@
                     <button class="connect" id="startButton" @click="connected = !connected">
                         Verbind
                     </button>
-                    <button class="camera" id="switchVideoFeed">Zie je zelf</button>
+{{--                    <button class="camera" id="switchVideoFeed">Zie je zelf</button>--}}
 
                     <div id="toggleButtons" x-show="connected" class="p-4 space-x-2">
-                        <!-- Toggle Camera On/Off button -->
+                        <!-- Toggle Camera On/Off button. Hover is disabled for small screens (smartphones) -->
                         <button id="cameraToggle" x-data="{ cameraOff: false }"
-                                :class="{ 'bg-red-500 hover:bg-green-600 hover:duration-300 b': cameraOff, 'bg-green-500 hover:bg-red-600 hover:duration-300': !cameraOff }"
+                                :class="{ 'bg-red-500 border-2 border-red-500 lg:hover:bg-green-600 lg:hover:border-green-500': cameraOff, 'bg-green-500 border-2 border-green-500 lg:hover:bg-red-600 lg:hover:border-red-500': !cameraOff }"
                                 @click="cameraOff = !cameraOff">
                             <img src="{{ Vite::asset('/public/storage/icons/webcam_blue.png') }}" alt="Camera icon"
                                  width="19" height="19" class="pointer-events-none" id="cameraIcon">
                         </button>
 
-                        <!-- Toggle Mic On/Off button -->
+                        <!-- Toggle Mic On/Off button. Hover is disabled for small screens (smartphones) -->
                         <button id="micToggle" x-data="{ micOff: false }"
-                                :class="{ 'bg-red-500 hover:bg-green-600 hover:duration-300': micOff, 'bg-green-500 hover:bg-red-600 hover:duration-300': !micOff }"
+                                :class="{ 'bg-red-500 border-2 border-red-500 lg:hover:bg-green-600 lg:hover:border-green-500': micOff, 'bg-green-500 border-2 border-green-500 lg:hover:bg-red-600 lg:hover:border-red-500': !micOff }"
                                 @click="micOff = !micOff">
                             <img src="{{ Vite::asset('/public/storage/icons/microphone_blue.png') }}"
                                  alt="Microphone icon"
@@ -60,7 +60,7 @@
                             <button id="controllerButton">
                                 <img src="{{ Vite::asset('/public/storage/icons/question_mark_blue.png') }}"
                                      alt="Help icon"
-                                     width="19" height="19" class="pointer-events-none" id="helpIcon">
+                                     width="21" height="21" class="pointer-events-none" id="helpIcon">
                             </button>
 
                             <!-- The Modal -->
@@ -69,7 +69,7 @@
                                 <!-- Modal content -->
                                 <div class="modal-content">
                                     <span class="close">&times;</span>
-                                    <img src="../img/SteeringInstructions.png" alt="Instructions on driving the IP-Car. Hold W to go straight ahead. Hold A to steer to the left and hold D to steer to the right. Hold S to go backwards. Keep in mind that in order to turn, you have to hold both your steering key (A or D) and the W key.">
+                                    <img src="{{ Vite::asset('/resources/img/SteeringInstructions.png') }}" alt="Instructions on driving the IP-Car. Hold W to go straight ahead. Hold A to steer to the left and hold D to steer to the right. Hold S to go backwards. Keep in mind that in order to turn, you have to hold both your steering key (A or D) and the W key.">
                                 </div>
 
                             </div>
@@ -111,12 +111,12 @@
 
             <div class="videoFeed">
                 <div class="livefeedIP_Car">
-                    <video mute='true' playsinline autoplay id='videoFeed'></video>
+                    <video mute='true' playsinline autoplay id='streamFeed'></video>
                     <!--  //v-bind:style="{ 'border': '7px solid'+color1.hex+'' }" -->
                 </div>
-                <!-- <div class="livefeedOwn"> -->
-                <!-- <video mute='true' playsinline autoplay id='ownFeed'  ></video> &lt;!&ndash;  //v-bind:style="{ 'border': '7px solid'+color1.hex+'' }" &ndash;&gt;-->
-                <!-- </div> -->
+                <div class="livefeedOwn">
+                    <video mute='true' playsinline autoplay id='ownFeed'></video>
+                </div>
             </div>
 
             <div id="joystick">
