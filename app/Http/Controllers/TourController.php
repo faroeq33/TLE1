@@ -41,7 +41,7 @@ class TourController extends Controller
     }
 
 
-    public function livestreamConnect ($login_code)
+    public function guideLivestream ($login_code)
     {
 //        ddd   ($login_code);
         return view('index', [
@@ -53,6 +53,14 @@ class TourController extends Controller
     {
 //        ddd   ($login_code);
         return view('stream', [
+            'tour' => Tour::with('user')->where('tour.login_code', '=', $login_code)
+        ]);
+    }
+
+    public function viewerLivestream ($login_code)
+    {
+//        ddd   ($login_code);
+        return view('viewer', [
             'tour' => Tour::with('user')->where('tour.login_code', '=', $login_code)
         ]);
     }
