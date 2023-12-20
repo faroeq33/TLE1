@@ -119,7 +119,7 @@
                 </div>
                 <div class="livefeedViewers">
                     <img src="{{ Vite::asset('/public/storage/icons/user_group_blue.png') }}" alt="Placeholder image showing a group of users"
-                         class="relative right-1/2 left-1/2 w-1/5 h-/3 overflow-hidden bg-gray-500 z-10">
+                         class="relative right-1/3 left-1/3 w-1/5 h-/3 overflow-hidden bg-gray-500 z-10">
                     >
                 </div>
             </div>

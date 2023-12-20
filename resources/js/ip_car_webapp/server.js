@@ -40,9 +40,9 @@ if(process.env.NODE_ENV === 'production'){
       //socketApp.use(express.static(__dirname + '/public'))  //socket.io
 
     //handle SPA
-    app.get(/.*/, (req,res) =>res.sendFile(__dirname + 'index.blade.php'));
+    app.get(/.*/, (req,res) =>res.sendFile(__dirname + 'guide.blade.php'));
     console.log(req.url)
-    //socketApp.get(/.*/, (req,res) =>res.sendFile(__dirname + '/public/index.blade.php')); //socket.io
+    //socketApp.get(/.*/, (req,res) =>res.sendFile(__dirname + '/public/guide.blade.php')); //socket.io
 
 }
 

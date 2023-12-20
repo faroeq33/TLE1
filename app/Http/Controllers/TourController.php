@@ -44,7 +44,7 @@ class TourController extends Controller
     public function guideLivestream ($login_code)
     {
 //        ddd   ($login_code);
-        return view('index', [
+        return view('guide', [
             'tour' => Tour::with('user')->where('tour.login_code', '=', $login_code)
             ]);
     }
@@ -52,7 +52,7 @@ class TourController extends Controller
     public function ipCarStream ($login_code)
     {
 //        ddd   ($login_code);
-        return view('stream', [
+        return view('ipcar-stream', [
             'tour' => Tour::with('user')->where('tour.login_code', '=', $login_code)
         ]);
     }
