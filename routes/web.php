@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::redirect('/register', '/login');
 
+Route::get('livestream/kijker/{login_code}', [TourController::class, 'viewerLivestream'])->name('kijker_livestream');
+
 Route::group(['middleware' => ['auth']], function() {
 
     //Tour overview and detail page
@@ -15,8 +17,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/tour/detail/{id}', [TourController::class, 'detail'])->name('detail');
 
     //Livestream
-    Route::get('livestream/{login_code}', [TourController::class, 'livestreamConnect'])->name('livestream');
-    Route::get('/admin/livestream/{login_code}', [TourController::class, 'ipCarStream'])->name('ip_car_livestream');
+    Route::get('livestream/gids/{login_code}', [TourController::class, 'guideLivestream'])->name('gids_livestream');
+    Route::get('/livestream/ipcar/{login_code}', [TourController::class, 'ipCarStream'])->name('ip_car_livestream');
 
 });
 

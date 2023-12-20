@@ -30,7 +30,8 @@ let textEncoder = new TextEncoder("utf-8");
 let startButton = document.getElementById("startButton");
 let switchVideoFeed= document.getElementById("switchVideoFeed");
 let touchCheckBox = document.getElementById ("checkbox");
-let videoFeed = document.getElementById("videoFeed");
+let videoFeed = document.getElementById("streamFeed");
+let ownVideoFeed = document.getElementById("ownFeed");
 
 let cameraFunctions = document.getElementById("cameraToggle");
 let micFunctions= document.getElementById("micToggle");
@@ -427,26 +428,26 @@ function startWebsocket(){
 }
  // end webscoket connection sending control data
 
-switchVideoFeed.onclick =  async function(e) { // switch betweeen own camera and IP-Camera
-
-  if(ownFeed == false && ownFeed == false){
-    //document.getElementById("switchVideoFeed").innerHTML = "zie de ander"
-    window.videoFeed.srcObject = ownStream;
-   // window.videoFeed.play();
-    ownFeed =true
-    ipCarFeed =false
-    return
-  }
-  if(ipCarFeed == false && ownFeed == true){
-   // document.getElementById("switchVideoFeed").innerHTML = "zie je zelf"
-    window.videoFeed.srcObject = ipCarStream
-  // window.videoFeed.play()
-    ownFeed =false;
-    ipCarFeed =true
-    return
-  }
-
- }
+// switchVideoFeed.onclick =  async function(e) { // switch betweeen own camera and IP-Camera
+//
+//   if(ownFeed == false && ownFeed == false){
+//     //document.getElementById("switchVideoFeed").innerHTML = "zie de ander"
+//     window.videoFeed.srcObject = ownStream;
+//    // window.videoFeed.play();
+//     ownFeed =true
+//     ipCarFeed =false
+//     return
+//   }
+//   if(ipCarFeed == false && ownFeed == true){
+//    // document.getElementById("switchVideoFeed").innerHTML = "zie je zelf"
+//     window.videoFeed.srcObject = ipCarStream
+//   // window.videoFeed.play()
+//     ownFeed =false;
+//     ipCarFeed =true
+//     return
+//   }
+//
+//  }
 
 async function videoStream(){ /// begin video verbinding
               /// websocket WebRTC for live stream
@@ -521,10 +522,10 @@ async function videoStream(){ /// begin video verbinding
                   },
                 });
                 ownStream =  mediaStream
-                window.videoFeed.srcObject = mediaStream;
+                ownVideoFeed.srcObject = mediaStream;
                 // window.videoFeed.volume = 0;
                 // window.videoFeed.muted = 0;
-                window.videoFeed.play();
+                ownVideoFeed.play();
 
                // document.getElementById("status").innerHTML = "Own camera feed"
 
@@ -544,8 +545,8 @@ async function videoStream(){ /// begin video verbinding
                       peerConnection.ontrack = (e) => {
                         console.log('on track', e);
                         ipCarStream = e.streams[0];
-                        window.videoFeed.srcObject = e.streams[0];
-                         window.videoFeed.play();
+                        videoFeed.srcObject = e.streams[0];
+                         videoFeed.play();
                          document.getElementById("status").innerHTML = "Verbonden"
                         //window.wait.classList.add('hidden');
                        // window.controls.classList.remove('hidden');
@@ -636,15 +637,6 @@ async function videoStream(){ /// begin video verbinding
           } // einde video verbinding
 
 cameraFunctions.onclick =  async function(e) { // Turn your own camera on or off
-    // let image = document.getElementById("cameraIcon").src;
-    //
-    // if (image.indexOf('webcam_blue.png')!==-1) {
-    //     document.getElementById('cameraIcon').src  = "/public/storage/icons/webcam_black.png"
-    // }
-    // else {
-    //     document.getElementById('cameraIcon').src = "/public/storage/icons/webcam_blue.png"
-    // }
-
     ownStream.getVideoTracks().forEach(track => {
         track.enabled = !track.enabled
     });

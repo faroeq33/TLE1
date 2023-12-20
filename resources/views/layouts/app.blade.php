@@ -31,7 +31,7 @@
         @include('partials.nav')
     </header>
 
-    <main class="py-4">
+    <main class="pt-4">
         @yield('content')
     </main>
 </div>
