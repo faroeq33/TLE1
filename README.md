@@ -1,5 +1,5 @@
-# Ip-car client
-Deze applicatie gebruikt de gids om de ip-car op afstand te kunnen bedienen
+# IP-car client
+Deze applicatie gebruikt de gids om de ip-car op afstand te kunnen bedienen.
 
 ## Testgebruikers
 Om te testen of de rollen goed werken kun je gebruik maken van de volgende testgebruikers.
