@@ -40,11 +40,11 @@
                         <td class="px-4 py-2 text-center border-b">{{ $tour->datetime->format('H:i') }}</td>
                         <td class="px-4 py-2 text-center border-b">
                             @if ($user && $user->is_admin)
-                                <a href="{{ route('admin.view_edit_tour', $tour->id) }}" class="px-2 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Edit</a>
+                                <a href="{{ route('admin.view_edit_tour', $tour->id) }}" class="px-2 py-1 text-white bg-blue-500 rounded hover:bg-blue-700">Aanpassen</a>
                                 <form method="post" action="{{ route('admin.delete_tour', $tour->id) }}" class="inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-700">Delete</button>
+                                    <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-700">Verwijderen</button>
                                 </form>
                             @else
                                 <a href="{{ route('gids_livestream', $tour->login_code) }}" class="px-2 py-1 text-white bg-green-500 rounded hover:bg-green-700">Start Livestream</a>

@@ -31,7 +31,7 @@
 
                             <div class="flex flex-wrap mb-3">
                                 <label for="password"
-                                    class="pt-2 pb-2 pl-4 pr-4 mb-0 leading-normal md:w-1/3 text-md-end">{{ __('Password') }}</label>
+                                    class="pt-2 pb-2 pl-4 pr-4 mb-0 leading-normal md:w-1/3 text-md-end">{{ __('Wachtwoord') }}</label>
 
                                 <div class="pl-4 pr-4 md:w-1/2">
                                     <input id="password" type="password"
@@ -53,7 +53,7 @@
                                             {{ old('remember') ? 'checked' : '' }}>
 
                                         <label class="pl-6 mb-0 text-gray-700" for="remember">
-                                            {{ __('Remember Me') }}
+                                            {{ __('Blijf ingelogt') }}
                                         </label>
                                     </div>
                                 </div>
@@ -65,11 +65,11 @@
                                         {{ __('Login') }}
                                     </button>
 
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-secondary" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
+{{--                                    @if (Route::has('password.request'))--}}
+{{--                                        <a class="btn btn-secondary" href="{{ route('password.request') }}">--}}
+{{--                                            {{ __('Wachtwoord Vergeten?') }}--}}
+{{--                                        </a>--}}
+{{--                                    @endif--}}
                                 </div>
                             </div>
                         </form>
