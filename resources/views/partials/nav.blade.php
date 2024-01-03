@@ -20,7 +20,7 @@
                         @if(auth()->user()->is_admin)
                             <!-- Nav Links only for Admins -->
                             <a href="{{ route('admin.view_user') }}"
-                               class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-tertiary hover:text-gray-700">Users</a>
+                               class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-tertiary hover:text-gray-700">Gebruikers</a>
                         @endif
                     </div>
                 </div>
