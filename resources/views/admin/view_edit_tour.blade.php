@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="datetime" class="block text-sm font-medium text-gray-600">{{ __('Datum & Tijd') }}</label>
+                    <label for="datetime" class="block text-sm font-medium text-gray-600">{{ __('Tour Datum & Tijd') }}</label>
                     <input type="datetime-local" name="datetime" id="datetime" class="mt-1 p-2 w-full border rounded-md" value="{{ old('datetime', $tour->datetime) }}" />
                 </div>
 

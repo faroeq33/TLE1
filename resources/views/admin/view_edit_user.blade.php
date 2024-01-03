@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium text-gray-600">{{ __('Email Address') }}</label>
+                    <label for="email" class="block text-sm font-medium text-gray-600">{{ __('Email') }}</label>
                     <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}" class="mt-1 p-2 w-full border rounded-md" required/>
                 </div>
 
