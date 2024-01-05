@@ -19,9 +19,9 @@ class TourController extends Controller
         $user = Auth::user();
 
         if ($user && $user->is_admin) {
-            $tours = Tour::all();
+            $tours = Tour::orderBy('datetime')->get();
         } else {
-            $tours = $user->tours;
+            $tours = $user->tours()->orderBy('datetime')->get();
         }
 
         return view('tour.overview')->with('user', $user)->with('tours', $tours);
