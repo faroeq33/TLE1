@@ -82,29 +82,30 @@
                     <!-- <li>Snelheid: 10km/h</li>
                     <li>Accu: 100%</li> -->
 
-                    {{--                    <div class="container">--}}
-                    {{--                        <div class="wrapper-dropdown" id="dropdown">--}}
-                    {{--                            <div class="setting-description-text" style="margin-left: 15px">--}}
-                    {{--                                <h10>Kies je besturing</h10>--}}
-                    {{--                            </div>--}}
-                    {{--                            <span class="selected-display" id="destination"></span>--}}
-                    {{--                            <svg id="drp-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"--}}
-                    {{--                                 xmlns="http://www.w3.org/2000/svg" class="arrow transition-all ml-auto rotate-180">--}}
-                    {{--                                <path d="M7 14.5l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"--}}
-                    {{--                                      stroke-linejoin="round"></path>--}}
-                    {{--                            </svg>--}}
-                    {{--                            <ul class="dropdown">--}}
-                    {{--                                <li class="item">Touch</li>--}}
-                    {{--                                <li class="item">Playstation</li>--}}
-                    {{--                                <li class="item">ControlX</li>--}}
-                    {{--                            </ul>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                    <!-- <li>Verlichting: {{light}}</li>--}}
-                    {{--                    <li>Camera: {{camera}}</li> -->--}}
-                    {{--                    <!-- <li>Pan: <span id="x">0</span></p></li>--}}
-                    {{--                    <li>Roll <span id="y">0</span></p></li>--}}
-                    {{--                    <li>Tilt: <span id="z">0</span></p></li> -->--}}
+                    <div class="container">
+                        <div class="wrapper-dropdown" id="dropdown">
+                            <div class="setting-description-text" style="margin-left: 15px">
+                                <h10>Kies je besturing</h10>
+                            </div>
+                            <span class="selected-display" id="destination"></span>
+                            <svg id="drp-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg" class="arrow transition-all ml-auto rotate-180">
+                                <path d="M7 14.5l5-5 5 5" stroke="currentColor" stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"></path>
+                            </svg>
+                            <ul class="dropdown">
+{{--                                <li class="item">Touch</li>--}}
+                                <li class="item">Playstation</li>
+{{--                                <li class="item">ControlX</li>--}}
+                            </ul>
+                        </div>
+                    </div>
+                    {{--                                        <!-- <li>Verlichting: {{light}}<li>--}}
+                    {{--                                        <li>Camera: {{camera}}</li> -->--}}
+                    {{--                                        <!-- <li>Pan: <span id="x">0</span></p></li>--}}
+                    {{--                                        <li>Roll <span id="y">0</span></p></li>--}}
+                    {{--                                        <li>Tilt: <span id="z">0</span></p></li> -->--}}
                 </ul>
                 <div class="version p-4">versie: 2.16</div>
             </div>
