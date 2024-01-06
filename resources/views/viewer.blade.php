@@ -77,8 +77,7 @@
                                     <!-- Modal content -->
                                     <div class="modal-content">
                                         <span class="close">&times;</span>
-                                        <img src="{{ asset('/resources/img/SteeringInstructions.png') }}"
-                                            alt="Instructions on driving the IP-Car. Hold W to go straight ahead. Hold A to steer to the left and hold D to steer to the right. Hold S to go backwards. Keep in mind that in order to turn, you have to hold both your steering key (A or D) and the W key.">
+                                    @include('steering-instructions')
                                     </div>
 
                                 </div>
@@ -98,7 +97,7 @@
                         {{--                            </div> --}}
                         {{--                            <span class="selected-display" id="destination"></span> --}}
                         {{--                            <svg id="drp-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" --}}
-                        {{--                                 xmlns="http://www.w3.org/2000/svg" class="arrow transition-all ml-auto rotate-180"> --}}
+                        {{--                                 xmlns="http://www.w3.org/2000/svg" class="ml-auto transition-all rotate-180 arrow"> --}}
                         {{--                                <path d="M7 14.5l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" --}}
                         {{--                                      stroke-linejoin="round"></path> --}}
                         {{--                            </svg> --}}
@@ -115,7 +114,7 @@
                         {{--                    <li>Roll <span id="y">0</span></p></li> --}}
                         {{--                    <li>Tilt: <span id="z">0</span></p></li> --> --}}
                     </ul>
-                    <div class="version p-4">versie: 2.16</div>
+                    <div class="p-4 version">versie: 2.16</div>
                 </div>
 
                 <div class="videoFeed">
@@ -128,7 +127,7 @@
                     </div>
                     <div class="livefeedGids">
                         <img src="{{ asset('storage/icons/user_blue.png') }}" alt="Placeholder image showing a single user"
-                            class="relative right-1/3 left-1/3 w-1/5 h-/3 overflow-hidden bg-gray-500 z-10">
+                            class="relative z-10 w-1/5 overflow-hidden bg-gray-500 right-1/3 left-1/3 h-/3">
                     </div>
                 </div>
 

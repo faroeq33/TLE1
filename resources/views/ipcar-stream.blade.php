@@ -38,8 +38,8 @@
                 </ul>
 
                 <!-- <li>Pan: <span id="x">0</span></p></li>
-                        <li>Roll <span id="y">0</span></p></li>
-                        <li>Tilt: <span id="z">0</span></p></li> -->
+                                <li>Roll <span id="y">0</span></p></li>
+                                <li>Tilt: <span id="z">0</span></p></li> -->
                 <div class="version">versie: 2.16</div>
             </div>
             <div class="videoFeed">
@@ -75,8 +75,7 @@
                         <!-- Modal content -->
                         <div class="modal-content">
                             <span class="close">&times;</span>
-                            <img src="{{ asset('/resources/img/SteeringInstructions.png') }}"
-                                alt="Instructions on driving the IP-Car. Hold W to go straight ahead. Hold A to steer to the left and hold D to steer to the right. Hold S to go backwards. Keep in mind that in order to turn, you have to hold both your steering key (A or D) and the W key.">
+                            @include('steering-instructions')
                         </div>
 
                     </div>
