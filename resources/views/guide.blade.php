@@ -18,9 +18,6 @@
         <meta http-equiv="Pragma" content="no-cache">
         <meta http-equiv="expires" content="0">
 
-        <!-- <script src="/js/Gradient.js"></script>  -->
-        <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css"/> -->
-        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@700&display=swap" rel="stylesheet">
         <!-- Scripts -->
         @vite(['resources/css/styles.css', 'resources/js/ip_car_webapp/app.js'])
     </head>
@@ -37,7 +34,7 @@
                         <button class="connect" id="startButton" @click="connected = !connected">
                             Verbind
                         </button>
-                        {{--                    <button class="camera" id="switchVideoFeed">Zie je zelf</button> --}}
+                        {{-- <button class="camera" id="switchVideoFeed">Zie je zelf</button> --}}
 
                         <div id="toggleButtons" x-show="connected" class="p-4 space-x-2">
                             <!-- Toggle Camera On/Off button. Hover is disabled for small screens (smartphones) -->
@@ -77,7 +74,7 @@
                                     <!-- Modal content -->
                                     <div class="modal-content">
                                         <span class="close">&times;</span>
-                                        <img src="{{ asset('/resources/img/SteeringInstructions.png') }}"
+                                        <img src="{{ Vite::asset('/resources/img/SteeringInstructions.png') }}"
                                             alt="Instructions on driving the IP-Car. Hold W to go straight ahead. Hold A to steer to the left and hold D to steer to the right. Hold S to go backwards. Keep in mind that in order to turn, you have to hold both your steering key (A or D) and the W key.">
                                     </div>
 
@@ -88,32 +85,32 @@
 
                     <ul>
                         <li>Status: <span id="status">Offline</span></li>
-                        <!-- <li>Snelheid: 10km/h</li>
-                            <li>Accu: 100%</li> -->
+                        {{-- <li>Snelheid: 10km/h</li> --}}
+                        {{-- <li>Accu: 100%</li> --> --}}
 
-                        {{--                    <div class="container"> --}}
-                        {{--                        <div class="wrapper-dropdown" id="dropdown"> --}}
-                        {{--                            <div class="setting-description-text" style="margin-left: 15px"> --}}
-                        {{--                                <h10>Kies je besturing</h10> --}}
-                        {{--                            </div> --}}
-                        {{--                            <span class="selected-display" id="destination"></span> --}}
-                        {{--                            <svg id="drp-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" --}}
-                        {{--                                 xmlns="http://www.w3.org/2000/svg" class="ml-auto transition-all rotate-180 arrow"> --}}
-                        {{--                                <path d="M7 14.5l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" --}}
-                        {{--                                      stroke-linejoin="round"></path> --}}
-                        {{--                            </svg> --}}
-                        {{--                            <ul class="dropdown"> --}}
-                        {{--                                <li class="item">Touch</li> --}}
-                        {{--                                <li class="item">Playstation</li> --}}
-                        {{--                                <li class="item">ControlX</li> --}}
-                        {{--                            </ul> --}}
-                        {{--                        </div> --}}
-                        {{--                    </div> --}}
-                        {{--                    <!-- <li>Verlichting: {{light}}</li> --}}
-                        {{--                    <li>Camera: {{camera}}</li> --> --}}
-                        {{--                    <!-- <li>Pan: <span id="x">0</span></p></li> --}}
-                        {{--                    <li>Roll <span id="y">0</span></p></li> --}}
-                        {{--                    <li>Tilt: <span id="z">0</span></p></li> --> --}}
+                        <div class="container">
+                            <div class="wrapper-dropdown" id="dropdown">
+                                <div class="setting-description-text" style="margin-left: 15px">
+                                    <h10>Kies je besturing</h10>
+                                </div>
+                                <span class="selected-display" id="destination"></span>
+                                <svg id="drp-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="ml-auto transition-all rotate-180 arrow">
+                                    <path d="M7 14.5l5-5 5 5" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                <ul class="dropdown">
+                                    {{-- <li class="item">Touch</li> --}}
+                                    <li class="item">Playstation</li>
+                                    {{-- <li class="item">ControlX</li> --}}
+                                </ul>
+                            </div>
+                        </div>
+                        {{-- <li>Verlichting: {{light}}<li> --}}
+                        {{-- <li>Camera: {{camera}}</li> --> --}}
+                        {{-- <li>Pan: <span id="x">0</span></p></li> --}}
+                        {{-- <li>Roll <span id="y">0</span></p></li> --}}
+                        {{-- <li>Tilt: <span id="z">0</span></p></li> --> --}}
                     </ul>
                     <div class="p-4 version">versie: 2.16</div>
                 </div>
@@ -121,7 +118,6 @@
                 <div class="videoFeed">
                     <div class="livefeedIP_Car">
                         <video mute='true' playsinline autoplay id='streamFeed'></video>
-                        <!--  //v-bind:style="{ 'border': '7px solid'+color1.hex+'' }" -->
                     </div>
                     <div class="livefeedOwn">
                         <video mute='true' playsinline autoplay id='ownFeed'></video>
@@ -130,7 +126,6 @@
                         <img src="{{ asset('storage/icons/user_group_blue.png') }}"
                             alt="Placeholder image showing a group of users"
                             class="relative z-10 w-1/5 overflow-hidden bg-gray-500 right-1/3 left-1/3 h-/3">
-                        >
                     </div>
                 </div>
 
@@ -142,10 +137,8 @@
                         <div id="stick2"></div>
                     </div>
                 </div>
-
-
-                <!-- <MultiTouch  class="multitouch"/>       -->
             </div>
+
             <div id="portrait">
                 <div class="welcomeText">
                     <h1>Welkom</h1>
