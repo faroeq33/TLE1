@@ -6,7 +6,7 @@
             <h1 class="text-3xl font-bold">Tour Overzicht</h1>
             <p>Klik op een tour voor meer info.</p>
             @if ($user && $user->is_admin)
-                <a href="{{ route('admin.view_create_tour') }}" type="button" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-20 rounded">{{ __('Maak een nieuwe tour aan') }}</a>
+                <a href="{{ route('admin.view_create_tour') }}" type="button" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-20 rounded">{{ __('Tour Toevoegen') }}</a>
             @endif
         </div>
         @if (session('status'))
