@@ -1,3 +1,4 @@
+@if(!in_array(request()->route()->getName(), ['kijker_livestream', 'gids_livestream', 'ip_car_livestream']))
 <img src="{{ asset('img/header-museum.png') }}" alt="" class="object-cover w-full h-48">
 @if( auth()->check() )
     <nav class="bg-white shadow" x-data="{
@@ -73,4 +74,5 @@
             </div>
         </div>
     </nav>
+@endif
 @endif
