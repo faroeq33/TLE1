@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* default fontfamilies */
+    html {
+        font-family: "Fredoka", system-ui, sans-serif;
+    }
+    /* default fontfamilies */
+
+    /* btn styles */
+    .btn {
+        @apply inline-block px-3 py-1 font-normal leading-normal text-center no-underline align-middle select-none;
+    }
+
+    .btn-primary {
+        @apply text-white bg-blue-600 border-b shadow-white hover:bg-primary;
+    }
+
+    .btn-secondary {
+        @apply inline-block underline bg-transparent border-b select-none text-dark hover:duration-300 hover:no-underline;
+    }
+    /* btn styles */
+
+    .custom-container {
+        @apply container w-full mx-auto px-4;
+    }
+}
