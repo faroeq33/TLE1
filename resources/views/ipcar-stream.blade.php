@@ -22,7 +22,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@700&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
-        @vite(['resources/css/stream.css', 'resources/js/ip_car_webapp/stream.js'])
+        @vite(['resources/js/ip_car_webapp/stream.js'])
     </head>
 @endsection
 
