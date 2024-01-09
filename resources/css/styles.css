@@ -24,13 +24,24 @@ ul {
     padding-left: 5px;
 }
 .information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
     padding: env(safe-area-inset-top) env(safe-area-inset-right)
         env(safe-area-inset-bottom) env(safe-area-inset-left);
     font-size: 0.7em;
     width: 20vw;
-    height: 100vh;
+    height: 40%;
+    top: 60%;
+    right: 0;
     z-index: 20;
-    float: left;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.namecar{
+
 }
 
 #portrait {
@@ -79,14 +90,13 @@ ul {
 
 .videoFeed {
     position: relative;
-    left: 20%;
-    width: 80vw;
+    width: 100vw;
     height: 100vh;
 }
 
 .livefeedIP_Car {
     width: 100%;
-    height: 100%;
+    height: 60%;
     position: absolute;
     margin: 0;
     padding: 0;
@@ -96,16 +106,22 @@ ul {
     z-index: 2;
 }
 .livefeedOwn {
-    position: relative;
-    bottom: 0;
-    right: 0;
-    top: 50%;
+    position: absolute;
+    top: 60%;
     left: 50%;
-    width: 20vw;
-    height: 30%;
+    width: 30vw;
+    height: 40%;
     overflow: hidden;
     background-color: #562525;
     z-index: 3;
+}
+
+.livefeedViewers{
+    position: absolute;
+    top: 60%;
+    left: 0;
+    width: 50vw;
+    height: 40%;
 }
 
 /*video{*/
