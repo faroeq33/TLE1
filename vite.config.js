@@ -7,6 +7,7 @@ export default defineConfig({
             input: [
                 "resources/css/app.css",
                 "resources/js/app.js",
+                "resources/js/ip_car_webapp/stream.js", // Nodig voor de livestream blade files
                 "resources/js/ip_car_webapp/app.js", // Nodig voor de livestream blade files
                 "resources/css/styles.css", // Nodig voor de livestream blade files
             ],
