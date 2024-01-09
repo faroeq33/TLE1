@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="custom-container">
+    <div class="custom-container pt-4">
         <div class="flex flex-wrap justify-center">
             <div class="px-4 md:w-2/3">
                 <div class="relative flex flex-col min-w-0 break-words  border border-gray-300 rounded border-1">

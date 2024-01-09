@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto mt-8">
+    <div class="pt-4 container mx-auto">
         <div class="max-w-md mx-auto bg-white rounded p-6 shadow-md">
             <h2 class="text-2xl font-semibold mb-4">{{ __('Tour Details') }}</h2>
 

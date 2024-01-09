@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto">
+    <div class="custom-container pt-4 mx-auto">
         <div class="flex justify-between items-center mb-4">
             <h1 class="text-3xl font-bold">Tour Overzicht</h1>
             <p>Klik op een tour voor meer info.</p>

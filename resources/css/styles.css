@@ -28,18 +28,19 @@ ul {
 
 .information {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     position: absolute;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     font-size: 0.7em;
-    width: 20vw;
+    width: 30vw;
     height: 40%;
     top: 60%;
     right: 0;
     z-index: 20;
     overflow: hidden;
     padding: 10px;
+    justify-content: space-evenly;
 }
 
 .informationViewer {
@@ -141,7 +142,7 @@ ul {
 .livefeedOwn {
     position: absolute;
     top: 60%;
-    left: 50%;
+    left: 40%;
     width: 30vw;
     height: 40%;
     overflow: hidden;
@@ -149,7 +150,10 @@ ul {
     z-index: 3;
 }
 
-
+.information-left, .information-right{
+    display: flex;
+    flex-direction: column;
+}
 
 .livefeedGidsViewer{
     position: absolute;
@@ -161,6 +165,10 @@ ul {
     width: 20vw;
     height: 30%;
     background: rgb(128, 128, 128);
+}
+
+.livefeedViewers img{
+    height: 100%;
 }
 
 #micToggle{
@@ -195,8 +203,10 @@ ul {
     position: absolute;
     top: 60%;
     left: 0;
-    width: 50vw;
+    width: 40vw;
     height: 40%;
+    display: flex;
+    justify-content: center;
 }
 
 /*video{*/

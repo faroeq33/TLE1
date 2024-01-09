@@ -24,6 +24,6 @@
     /* btn styles */
 
     .custom-container {
-        @apply container w-full mx-auto sm:px-4;
+        @apply container w-full mx-auto px-4;
     }
 }

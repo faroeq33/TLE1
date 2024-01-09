@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    
+
     <!-- In order to prevent digital ocean to complain about insecurities -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
@@ -34,7 +34,7 @@
         @include('partials.nav')
     </header>
 
-    <main class="pt-4">
+    <main>
         @yield('content')
     </main>
 </div>

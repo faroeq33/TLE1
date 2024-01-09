@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto mt-8">
+    <div class="custom-container mx-auto pt-4">
         <div class="max-w-md mx-auto bg-white rounded p-6 shadow-md">
             <h2 class="text-2xl font-semibold mb-4">{{ __('Gebruiker Aanpassen') }}</h2>
 

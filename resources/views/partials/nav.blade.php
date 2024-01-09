@@ -9,7 +9,7 @@
                 <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
                     <div class="flex items-center flex-shrink-0 p-4 m-4 ">
                         <a href="{{ route('overview') }}">
-                            <p class="uppercase font-primary">IP-car</p>
+                            <p class="uppercase font-primary">StreamTeam</p>
                         </a>
                     </div>
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -33,7 +33,7 @@
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                             <span class="absolute -inset-1.5"></span>
                             <span class="sr-only">Open user menu</span>
-                            <span class="text-lg font-medium mr-2">{{ Auth::user()->name }}</span>
+                            <span class="text-lg font-medium mr-2 capitalize">{{ Auth::user()->name }}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                  stroke="currentColor" class="w-8 h-8">
                                 <path stroke-linecap="round" stroke-linejoin="round"
