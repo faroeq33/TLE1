@@ -13,9 +13,9 @@ class UserSeeder extends Seeder {
 
 
     public function run(): void {
-
         // testgegevens voor de gids
-        User::firstOrCreate([
+        User::create([
+            'organisation_id' => 1, // Verwijst naar streamteam testorganisatie
             'name' => 'testuser',
             'is_admin' => 0,
             'password' => Hash::make('testpassword123'),
@@ -23,7 +23,8 @@ class UserSeeder extends Seeder {
         ]);
 
         // testgegevens voor de admin
-        User::firstOrCreate([
+        User::create([
+            'organisation_id' => 1, // Verwijst naar streamteam testorganisatie
             'name' => 'testadmin',
             'is_admin' => 1,
             'password' => Hash::make('testpassword123'),
