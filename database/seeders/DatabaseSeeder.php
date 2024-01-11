@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder {
     public function run(): void {
         // Call methode maakt mogelijk dat je meerdere seeders of factories kan toevoegen
         $this->call([
-            UserSeeder::class
+            OrganisationSeeder::class,
+            UserSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
