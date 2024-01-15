@@ -43,7 +43,7 @@ password: testpassword123
 
 ### Gids Gebruiker:
 - Een admin heeft voor u een account aangemaakt en heeft hiervoor de gegevens doorgegeven.
-- Ga naar https://www.ipcar-team12.nl en log in met uw Email en wachtwoord.
+- Ga naar https://ipcar-team12.nl en log in met uw Email en wachtwoord.
 - Op het touroverzicht scherm ziet u alle tours die voor u zijn aangemaakt.
 - Als u op een van de tours klikt, ziet u de overzichtspagina.
 - Klik op de groene “Start Livestream” knop om de stream te starten.
@@ -53,7 +53,7 @@ password: testpassword123
 
 ### Admin Gebruiker:
 #### Eerste gebruik:
-- Ga naar https://www.ipcar-team12.nl
+- Ga naar https://ipcar-team12.nl
 - De eerste keer dat de website wordt gebruikt zijn er test accounts om in te loggen.
 - Email = testadmin@test.com | Wachtwoord = testpassword123
 - Log in met dit account en ga naar het gebruikersoverzicht.
