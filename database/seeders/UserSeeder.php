@@ -11,9 +11,16 @@ class UserSeeder extends Seeder {
      * Run the database seeds.
      */
 
+    private function nameExists($name) {
+        return User::where('name', $name)->exists();
+    }
 
-    public function run(): void {
-        // testgegevens voor de gids
+    private function createTestUser() {
+        // This prevents the seeder from creating a new user if one already exists
+        if ($this->nameExists('testuser')) {
+            return;
+        }
+
         User::create([
             'organisation_id' => 1, // Verwijst naar streamteam testorganisatie
             'name' => 'testuser',
@@ -21,8 +28,14 @@ class UserSeeder extends Seeder {
             'password' => Hash::make('testpassword123'),
             'email' => 'test@test.com',
         ]);
+    }
 
-        // testgegevens voor de admin
+    private function createTestAdminUser() {
+        // This prevents the seeder from creating a new user if one already exists
+        if ($this->nameExists('testadmin')) {
+            return;
+        }
+
         User::create([
             'organisation_id' => 1, // Verwijst naar streamteam testorganisatie
             'name' => 'testadmin',
@@ -30,5 +43,13 @@ class UserSeeder extends Seeder {
             'password' => Hash::make('testpassword123'),
             'email' => 'testadmin@test.com',
         ]);
+    }
+
+    public function run(): void {
+        // testgegevens voor de gids
+        $this->createTestUser();
+
+        // testgegevens voor de admin
+        $this->createTestAdminUser();
     }
 }
